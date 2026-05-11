@@ -29,11 +29,11 @@ class UHomeCategories extends StatelessWidget {
               separatorBuilder: (context, index) =>
                   SizedBox(width: USizes.spaceBtwItems),
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: 6,
               itemBuilder: (context, index) {
                 return UVerticalImageText(
                   title: 'sports categories',
-                  image: UImages.google,
+                  image: UImages.features1,
                   textColor: UColors.white,
                   onTap: () {},
                 );

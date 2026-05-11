@@ -1,18 +1,16 @@
+import 'package:e_commerce/utils/helpers/helper_functions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../utils/constants/colors.dart';
 
 class UCartCounterIcon extends StatelessWidget {
-  const UCartCounterIcon({
-    super.key,
-    required this.dark,
-  });
+  const UCartCounterIcon({super.key,});
 
-  final bool dark;
 
   @override
   Widget build(BuildContext context) {
+    final dark=UHelperFunctions.isDarkMode(context);
     return Stack(
       children: [
         IconButton(
@@ -34,8 +32,7 @@ class UCartCounterIcon extends StatelessWidget {
             child: Center(
               child: Text(
                 '2',
-                style: Theme.of(context).textTheme.labelLarge!
-                    .apply(
+                style: Theme.of(context).textTheme.labelLarge!.apply(
                   fontSizeFactor: 0.8,
                   color: dark ? UColors.light : UColors.dark,
                 ),

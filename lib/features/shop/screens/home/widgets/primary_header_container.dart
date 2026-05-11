@@ -6,14 +6,15 @@ import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/helpers/device_helpers.dart';
 
 class UPrimaryHeaderContainer extends StatelessWidget {
-  const UPrimaryHeaderContainer({super.key, required this.child});
+  const UPrimaryHeaderContainer({super.key, required this.child, this.height});
   final Widget child;
+  final double? height;
   @override
   Widget build(BuildContext context) {
     return ClipPath(
       clipper: URoundedEdgesContainer(),
       child: Container(
-        height: UDeviceHelper.getScreenHeight(context) * 0.4,
+        height: height ?? UDeviceHelper.getScreenHeight(context) * 0.36,
         color: UColors.primary,
         child: Stack(
           children: [
@@ -21,8 +22,8 @@ class UPrimaryHeaderContainer extends StatelessWidget {
               top: -150,
               right: -160,
               child: UCircularContainer(
-                height: UDeviceHelper.getScreenHeight(context) * 0.4,
-                width: UDeviceHelper.getScreenHeight(context) * 0.4,
+                height: UDeviceHelper.getScreenHeight(context) * 0.36,
+                width: UDeviceHelper.getScreenHeight(context) * 0.36,
                 backgroundColor: UColors.white.withValues(alpha: 0.1),
               ),
             ),
@@ -30,8 +31,8 @@ class UPrimaryHeaderContainer extends StatelessWidget {
               top: 50,
               right: -250,
               child: UCircularContainer(
-                height: UDeviceHelper.getScreenHeight(context) * 0.4,
-                width: UDeviceHelper.getScreenHeight(context) * 0.4,
+                height: UDeviceHelper.getScreenHeight(context) * 0.36,
+                width: UDeviceHelper.getScreenHeight(context) * 0.36,
                 backgroundColor: UColors.white.withValues(alpha: 0.1),
               ),
             ),

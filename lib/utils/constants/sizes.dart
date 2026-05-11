@@ -59,6 +59,9 @@ class USizes{
   static const double cardRadiusSm = 10.0;
   static const double cardRadiusXs = 6.0;
   static const double cardElevation = 2.0;
+  static const double homePrimaryHeaderHeight = 320.0;
+  static const double storePrimaryHeaderHeight = 170.0;
+
 
   // Image carousel height
   static const double imageCarouselHeight = 200.0;

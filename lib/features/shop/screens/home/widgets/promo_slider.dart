@@ -16,7 +16,7 @@ class UPromoSlider extends StatelessWidget {
       children: [
         CarouselSlider(
           items: banners
-              .map((banner) => URounderImage(imageUrl: banner))
+              .map((banner) => URoundedImage(imageUrl: banner))
               .toList(),
           options: CarouselOptions(
             viewportFraction: 1.0,

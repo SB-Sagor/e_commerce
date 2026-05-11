@@ -1,16 +1,10 @@
 import 'package:e_commerce/common/style/padding.dart';
 import 'package:e_commerce/common/widgets/button/elevated_button.dart';
-import 'package:e_commerce/common/widgets/screens/success_screen.dart';
-import 'package:e_commerce/features/screens/login/login.dart';
 import 'package:e_commerce/utils/constants/colors.dart';
-import 'package:e_commerce/utils/constants/images.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:e_commerce/utils/constants/texts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:lottie/lottie.dart';
 
 class SuccessScreen extends StatelessWidget {
@@ -18,7 +12,8 @@ class SuccessScreen extends StatelessWidget {
     super.key,
     required this.title,
     required this.subtitle,
-    required this.image, required this.onTap,
+    required this.image,
+    required this.onTap,
   });
   final String title, subtitle, image;
   final VoidCallback onTap;
@@ -46,10 +41,7 @@ class SuccessScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: USizes.spaceBtwItems),
-              UElevatedButton(
-                onPressed: onTap,
-                child: Text(UTexts.UContinue),
-              ),
+              UElevatedButton(onPressed: onTap, child: Text(UTexts.UContinue)),
               SizedBox(
                 width: double.infinity,
                 child: TextButton(

@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 
 import '../../../utils/constants/sizes.dart';
 
-class URounderImage extends StatelessWidget {
-  const URounderImage({
+class URoundedImage extends StatelessWidget {
+  const URoundedImage({
     super.key,
     this.width,
     this.height,

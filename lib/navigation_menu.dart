@@ -1,6 +1,7 @@
 import 'package:e_commerce/features/screens/login/login.dart';
 import 'package:e_commerce/features/screens/signup/signup.dart';
 import 'package:e_commerce/features/shop/screens/home/home.dart';
+import 'package:e_commerce/features/shop/screens/store/store.dart';
 import 'package:e_commerce/utils/constants/colors.dart';
 import 'package:e_commerce/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class NavigationMenu extends StatelessWidget {
     final controller = Get.put(NavigationController());
     bool dark = UHelperFunctions.isDarkMode(context);
     return Scaffold(
-      body: controller.screens[controller.selectedIndex.value],
+      body: Obx(() => controller.screens[controller.selectedIndex.value]),
       bottomNavigationBar: Obx(
         () => NavigationBar(
           elevation: 0,
@@ -43,7 +44,8 @@ class NavigationController extends GetxController {
 
   List<Widget> screens = [
     HomeScreen(),
-    LoginScreen(),
+    StoreScreen(),
     SignupScreen(),
-    LoginScreen()
-  ];}
+    LoginScreen(),
+  ];
+}

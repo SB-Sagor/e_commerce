@@ -1,3 +1,4 @@
+import 'package:e_commerce/utils/helpers/helper_functions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -7,15 +8,12 @@ import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/texts.dart';
 
 class UHomeAppBar extends StatelessWidget {
-  const UHomeAppBar({
-    super.key,
-    required this.dark,
-  });
+  const UHomeAppBar({super.key,});
 
-  final bool dark;
 
   @override
   Widget build(BuildContext context) {
+    final dark=UHelperFunctions.isDarkMode(context);
     return UAppBar(
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,9 +32,7 @@ class UHomeAppBar extends StatelessWidget {
           ),
         ],
       ),
-      actions: [
-        UCartCounterIcon(dark: dark),
-      ],
+      actions: [UCartCounterIcon()],
     );
   }
 }
