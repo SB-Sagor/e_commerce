@@ -1,0 +1,24 @@
+import 'package:flutter/cupertino.dart';
+import 'package:iconsax/iconsax.dart';
+
+import '../../../../common/widgets/icons/circular_icon.dart';
+import '../../../../common/widgets/images/user_profile_logo.dart';
+
+class UserProfileWithEditIcon extends StatelessWidget {
+  const UserProfileWithEditIcon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Center(child: UserProfileLogo()),
+        Positioned(
+          bottom: 0,
+          top: 0,
+          right: 0,
+          child: UCircularIcon(icon: Iconsax.edit),
+        ),
+      ],
+    );
+  }
+}

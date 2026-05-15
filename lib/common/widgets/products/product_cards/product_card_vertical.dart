@@ -1,14 +1,18 @@
 import 'package:e_commerce/common/widgets/custom_shapes/rounded_container.dart';
 import 'package:e_commerce/common/widgets/icons/circular_icon.dart';
 import 'package:e_commerce/common/widgets/images/rounded_image.dart';
+import 'package:e_commerce/features/shop/screens/product_details/product_details.dart';
 import 'package:e_commerce/utils/constants/colors.dart';
 import 'package:e_commerce/utils/constants/images.dart';
 import 'package:e_commerce/utils/helpers/helper_functions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../style/shadow.dart';
+import '../../texts/brand_title_with_verify_icon.dart';
 import '../../texts/product_price_text.dart';
 import '../../texts/product_title_text.dart';
 
@@ -19,9 +23,9 @@ class UProductCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = UHelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () {},
+      onTap: () => Get.to(() => ProductDetailsScreen()),
       child: Container(
-        width: 180,
+        height: 180,
         padding: EdgeInsets.all(1),
         decoration: BoxDecoration(
           boxShadow: UShadow.verticalProductShadow,
@@ -29,6 +33,7 @@ class UProductCardVertical extends StatelessWidget {
           color: dark ? UColors.dark : UColors.light,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             URoundedContainer(
               height: 160,
@@ -36,7 +41,7 @@ class UProductCardVertical extends StatelessWidget {
               backgroundColor: dark ? UColors.dark : UColors.light,
               child: Stack(
                 children: [
-                  URoundedImage(imageUrl: UImages.product1),
+                  Center(child: URoundedImage(imageUrl: UImages.product1)),
                   Positioned(
                     top: 8.0,
                     left: 8.0,
@@ -75,22 +80,7 @@ class UProductCardVertical extends StatelessWidget {
                 children: [
                   UProductTitleText(title: 'New Shirt', smallSize: true),
                   SizedBox(height: USizes.spaceBtwItems / 2),
-                  Row(
-                    children: [
-                      Text(
-                        'easy',
-                        style: Theme.of(context).textTheme.labelMedium,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      SizedBox(height: USizes.xs),
-                      Icon(
-                        Iconsax.verify5,
-                        color: UColors.primary,
-                        size: USizes.iconXs,
-                      ),
-                    ],
-                  ),
+                  UBrandTitleWithVerifyIcon(title: 'zara'),
                 ],
               ),
             ),

@@ -11,10 +11,11 @@ class UImages {
   static const String email = 'assets/animations/email.json';
   static const String success = 'assets/animations/success.json';
 
-  static const String banner1 = 'assets/banners/b1.jpg';
-  static const String banner2 = 'assets/banners/b2.jpg';
-  static const String banner3 = 'assets/banners/hero2.jpg';
-  static const String banner4 = 'assets/banners/hero1.png';
+  static const String banner1 = 'assets/banners/b1.png';
+  static const String banner2 = 'assets/banners/b2.png';
+  static const String banner3 = 'assets/banners/b3.png';
+  static const String banner4 = 'assets/banners/hero2.jpg';
+  static const String banner5 = 'assets/banners/hero1.png';
 
   static const String product1 = 'assets/products/f1.jpg';
   static const String product2 = 'assets/products/f2.jpg';

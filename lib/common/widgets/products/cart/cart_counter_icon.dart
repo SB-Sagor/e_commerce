@@ -1,20 +1,22 @@
+import 'package:e_commerce/features/shop/screens/cart/cart.dart';
 import 'package:e_commerce/utils/helpers/helper_functions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../utils/constants/colors.dart';
 
 class UCartCounterIcon extends StatelessWidget {
-  const UCartCounterIcon({super.key,});
-
+  const UCartCounterIcon({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final dark=UHelperFunctions.isDarkMode(context);
+    final dark = UHelperFunctions.isDarkMode(context);
     return Stack(
       children: [
+        ///bag/cart
         IconButton(
-          onPressed: () {},
+          onPressed: () => Get.to(() => CartScreen()),
           icon: Icon(
             Iconsax.shopping_bag,
             color: dark ? UColors.dark : UColors.light,

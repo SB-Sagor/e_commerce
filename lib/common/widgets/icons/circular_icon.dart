@@ -25,14 +25,14 @@ class UCircularIcon extends StatelessWidget {
     return Container(
       width: width,
       height: height,
-      // decoration: BoxDecoration(
-      //   color: (backgroundColor != null)
-      //       ? backgroundColor
-      //       : dark
-      //       ? UColors.dark.withValues(alpha: 0.3)
-      //       : UColors.light.withValues(alpha: 0.3),
-      //   borderRadius: BorderRadius.circular(100),
-      // ),
+      decoration: BoxDecoration(
+        color: (backgroundColor != null)
+            ? backgroundColor
+            : dark
+            ? UColors.light.withValues(alpha: 0.3)
+            : UColors.darkContainer.withValues(alpha: 0.3),
+        borderRadius: BorderRadius.circular(100),
+      ),
       child: IconButton(
         onPressed: onPressed,
         icon: Icon(icon, color: color, size: size),

@@ -41,6 +41,7 @@ dependencies:
   iconsax: ^0.0.8
   flutter_launcher_icons: ^0.14.4
   carousel_slider: ^5.1.2
+  readmore: ^3.0.0
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,4 @@
-class USizes{
+class USizes {
   USizes._();
 
   // Padding and margin sizes
@@ -61,7 +61,10 @@ class USizes{
   static const double cardElevation = 2.0;
   static const double homePrimaryHeaderHeight = 320.0;
   static const double storePrimaryHeaderHeight = 170.0;
+  static const double profilePrimaryHeaderHeight = 170.0;
 
+  static const double brandCardWidth = 170.0;
+  static const double brandCardHeight = 70.0;
 
   // Image carousel height
   static const double imageCarouselHeight = 200.0;

@@ -2,15 +2,14 @@ import 'package:e_commerce/common/widgets/products/product_cards/product_card_ve
 import 'package:e_commerce/features/shop/controllers/home/home_controller.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_categories.dart';
-import 'package:e_commerce/features/shop/screens/home/widgets/primary_header_container.dart';
+import 'package:e_commerce/common/widgets/custom_shapes/primary_header_container.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/promo_slider.dart';
 import 'package:e_commerce/utils/constants/images.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:e_commerce/utils/helpers/device_helpers.dart';
 import 'package:e_commerce/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/src/extension_instance.dart';
+import 'package:get/get.dart';
 import '../../../../common/widgets/layouts/grid_layout.dart';
 import '../../../../common/widgets/textfields/search_bar.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
@@ -50,8 +49,8 @@ class HomeScreen extends StatelessWidget {
                   UPromoSlider(
                     banners: [
                       UImages.banner1,
-                      UImages.banner3,
                       UImages.banner2,
+                      UImages.banner3,
                     ],
                   ),
                   SizedBox(height: USizes.spaceBtwSections / 2),
