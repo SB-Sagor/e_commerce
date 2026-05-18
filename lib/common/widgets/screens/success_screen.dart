@@ -42,16 +42,6 @@ class SuccessScreen extends StatelessWidget {
               ),
               SizedBox(height: USizes.spaceBtwItems),
               UElevatedButton(onPressed: onTap, child: Text(UTexts.UContinue)),
-              SizedBox(
-                width: double.infinity,
-                child: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    UTexts.resendEmail,
-                    style: TextStyle(color: UColors.primary),
-                  ),
-                ),
-              ),
             ],
           ),
         ),

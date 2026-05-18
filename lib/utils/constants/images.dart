@@ -4,6 +4,7 @@ class UImages {
   static const String welcome = 'assets/animations/hello.json';
   static const String cart = 'assets/animations/cart.json';
   static const String delivery = 'assets/animations/Delivery.json';
+  static const String loading = 'assets/animations/loading.json';
 
   static const String facebook = 'assets/logos/facebook.png';
   static const String google = 'assets/logos/google.png';
@@ -41,6 +42,10 @@ class UImages {
   static const String jordan='assets/brands/jordan_logo.png';
   static const String nike='assets/brands/nike_logo.png';
   static const String zara='assets/brands/zara_logo.png';
+
+  static const String creditCard='assets/icons/payment_methods/credit-card.png';
+  static const String masterCard='assets/icons/payment_methods/master-card.png';
+  static const String visa='assets/icons/payment_methods/visa.png';
 
 
 

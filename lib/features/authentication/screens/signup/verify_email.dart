@@ -1,6 +1,7 @@
 import 'package:e_commerce/common/style/padding.dart';
 import 'package:e_commerce/common/widgets/button/elevated_button.dart';
-import 'package:e_commerce/common/widgets/screens/success_screen.dart';
+import 'package:e_commerce/data/repositories/authentication_repository.dart';
+import 'package:e_commerce/features/authentication/controllers/signup/verify_email_controller.dart';
 import 'package:e_commerce/utils/constants/colors.dart';
 import 'package:e_commerce/utils/constants/images.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
@@ -8,23 +9,22 @@ import 'package:e_commerce/utils/constants/texts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:lottie/lottie.dart';
 
-import '../login/login.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
-  const VerifyEmailScreen({super.key});
-
+  const VerifyEmailScreen({super.key, this.email});
+  final String? email;
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VerifyEmailController());
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            onPressed: () => Get.offAll(() => LoginScreen()),
+            onPressed: () => AuthenticationRepository.instance.logout(),
+            // Get.offAll(() => LoginScreen()),
             icon: Icon(CupertinoIcons.clear),
           ),
         ],
@@ -41,10 +41,7 @@ class VerifyEmailScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               SizedBox(height: USizes.spaceBtwItems),
-              Text(
-                "unknownemai@gmail.com",
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
+              Text(email ?? '', style: Theme.of(context).textTheme.bodyMedium),
               SizedBox(height: USizes.spaceBtwItems),
               Text(
                 UTexts.confirmEmailSubTitle,
@@ -53,20 +50,21 @@ class VerifyEmailScreen extends StatelessWidget {
               ),
               SizedBox(height: USizes.spaceBtwItems),
               UElevatedButton(
-                onPressed: () => Get.to(
-                  () => SuccessScreen(
-                    title: UTexts.yourAccountCreatedTitle,
-                    subtitle: UTexts.yourAccountCreatedSubTitle,
-                    image: UImages.success,
-                    onTap: () {},
-                  ),
-                ),
+                onPressed: controller.checkEmailVerificationStatus,
+                //     Get.to(
+                //   () => SuccessScreen(
+                //     title: UTexts.yourAccountCreatedTitle,
+                //     subtitle: UTexts.yourAccountCreatedSubTitle,
+                //     image: UImages.success,
+                //     onTap: () {},
+                //   ),
+                // ),
                 child: Text(UTexts.UContinue),
               ),
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: controller.sendEmailVerification,
                   child: Text(
                     UTexts.resendEmail,
                     style: TextStyle(color: UColors.primary),

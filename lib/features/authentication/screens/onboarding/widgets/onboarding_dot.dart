@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../../utils/helpers/device_helpers.dart';
-import '../../../../controllers/onboarding/onboarding_controller.dart';
+import '../../../controllers/onboarding/onboarding_controller.dart';
 
 class OnBoardingDotNavigation extends StatelessWidget {
   const OnBoardingDotNavigation({super.key});

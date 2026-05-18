@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "206328284827",
+    "project_id": "shoppingapp-18cc4",
+    "storage_bucket": "shoppingapp-18cc4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206328284827:android:9164e8715212e19f40683e",
+        "android_client_info": {
+          "package_name": "com.example.e_commerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206328284827-is54jb0vfjijjhcgg3bcq3d9cu48npuh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.e_commerce",
+            "certificate_hash": "e10f62941d6ecbb6392a0e29db6b374455bacc58"
+          }
+        },
+        {
+          "client_id": "206328284827-dnnluehnmpbre0q4k633ajcjtt60ge3j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdH0fa84zGTZtReL8xg4Z8bDlMSumCMvg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206328284827-dnnluehnmpbre0q4k633ajcjtt60ge3j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "206328284827-an1icp6cdjrr4jmc6fcqcgpmcf13d5hp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eCommerce"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

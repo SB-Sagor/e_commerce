@@ -20,7 +20,7 @@ class UCartItems extends StatelessWidget {
       itemCount: 2,
       itemBuilder: (context, index) {
         return Container(
-          padding: EdgeInsets.all(USizes.md),
+          padding: EdgeInsets.all(USizes.sm),
           decoration: BoxDecoration(
             border: Border.all(
               color: dark ? UColors.darkContainer : UColors.darkGrey,

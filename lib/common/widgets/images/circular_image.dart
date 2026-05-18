@@ -46,13 +46,11 @@ class UCircularImage extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(100),
-        child: Center(
-          child: Image(
-            fit: fit,
-            image: isNetworkImage
-                ? NetworkImage(image)
-                : AssetImage(image) as ImageProvider,
-          ),
+        child: Image(
+          fit: fit,
+          image: isNetworkImage
+              ? NetworkImage(image)
+              : AssetImage(image) as ImageProvider,
         ),
       ),
     );

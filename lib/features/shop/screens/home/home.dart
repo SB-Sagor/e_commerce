@@ -1,5 +1,6 @@
 import 'package:e_commerce/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:e_commerce/features/shop/controllers/home/home_controller.dart';
+import 'package:e_commerce/features/shop/screens/all_products/all_products.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:e_commerce/common/widgets/custom_shapes/primary_header_container.dart';
@@ -54,7 +55,10 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: USizes.spaceBtwSections / 2),
-                  USectionHeading(title: 'Popular Products', onPressed: () {}),
+                  USectionHeading(
+                    title: 'Popular Products',
+                    onPressed: () => Get.to(() => AllProductsScreen()),
+                  ),
                   SizedBox(height: USizes.spaceBtwItems / 2),
                   UGridLayout(
                     itemCount: 6,

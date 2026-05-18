@@ -1,10 +1,9 @@
-import 'package:e_commerce/features/controllers/onboarding/onboarding_controller.dart';
-import 'package:e_commerce/utils/constants/images.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../utils/helpers/device_helpers.dart';
+import '../../../controllers/onboarding/onboarding_controller.dart';
 
 class OnBoardingSkipButton extends StatelessWidget {
   const OnBoardingSkipButton({super.key});

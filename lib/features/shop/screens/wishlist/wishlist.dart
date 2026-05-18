@@ -14,6 +14,7 @@ class WishlistScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: UAppBar(
+        showBackArrow: true,
         title: Text(
           'Wishlist',
           style: Theme.of(context).textTheme.headlineMedium,

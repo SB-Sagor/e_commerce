@@ -1,19 +1,22 @@
 import 'package:e_commerce/common/style/padding.dart';
 import 'package:e_commerce/common/widgets/appbar/appbar.dart';
-import 'package:e_commerce/common/widgets/icons/circular_icon.dart';
-import 'package:e_commerce/common/widgets/images/user_profile_logo.dart';
 import 'package:e_commerce/common/widgets/texts/section_heading.dart';
 import 'package:e_commerce/features/personalization/screens/edit_profile/user_profile_with_edit_icon.dart';
 import 'package:e_commerce/utils/constants/colors.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:iconsax/iconsax.dart';
+
+import '../../controller/user_controller.dart';
 
 class EditProfileScreen extends StatelessWidget {
   const EditProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
+
     return Scaffold(
       appBar: UAppBar(
         showBackArrow: true,
@@ -37,8 +40,18 @@ class EditProfileScreen extends StatelessWidget {
               ),
               SizedBox(height: USizes.spaceBtwItems),
 
-              UserDetailRow(title: 'Name', value: 'Boss Baby', onTap: () {}),
-              UserDetailRow(title: 'User Name', value: 'Boss12', onTap: () {}),
+              UserDetailRow(
+                title: 'Name',
+                value: controller.user.value.fullName,
+                // 'Boss Baby',
+                onTap: () {},
+              ),
+              UserDetailRow(
+                title: 'User Name',
+                value: controller.user.value.username,
+                // 'Boss12',
+                onTap: () {},
+              ),
               SizedBox(height: USizes.spaceBtwItems),
 
               Divider(),
@@ -50,16 +63,30 @@ class EditProfileScreen extends StatelessWidget {
               ),
               SizedBox(height: USizes.spaceBtwItems),
 
-              UserDetailRow(title: 'User Id', value: 'Boss Baby', onTap: () {}),
-              UserDetailRow(title: 'Email', value: 'Boss12', onTap: () {}),
               UserDetailRow(
-                title: 'Phone NUmber',
-                value: 'Boss Baby',
+                title: 'User Id',
+                value: controller.user.value.firstName,
+
+                // 'Boss Baby',
                 onTap: () {},
               ),
-              UserDetailRow(title: 'Gender', value: 'Boss12', onTap: () {}),
-              SizedBox(height: USizes.spaceBtwItems),
+              UserDetailRow(
+                title: 'Email',
+                value: controller.user.value.email,
 
+                // 'Boss12'
+                onTap: () {},
+              ),
+              UserDetailRow(
+                title: 'Phone NUmber',
+                value: controller.user.value.phoneNumber,
+
+                // 'Boss Baby',
+                onTap: () {},
+              ),
+
+              // UserDetailRow(title: 'Gender', value: 'Boss12', onTap: () {}),
+              // SizedBox(height: USizes.spaceBtwItems),
               Divider(),
               SizedBox(height: USizes.spaceBtwSections),
 

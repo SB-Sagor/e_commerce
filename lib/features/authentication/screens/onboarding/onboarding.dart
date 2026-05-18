@@ -2,7 +2,6 @@ import 'package:e_commerce/features/authentication/screens/onboarding/widgets/on
 import 'package:e_commerce/features/authentication/screens/onboarding/widgets/onboarding_next.dart';
 import 'package:e_commerce/features/authentication/screens/onboarding/widgets/onboarding_page.dart';
 import 'package:e_commerce/features/authentication/screens/onboarding/widgets/onboarding_skip.dart';
-import 'package:e_commerce/features/controllers/onboarding/onboarding_controller.dart';
 import 'package:e_commerce/utils/constants/images.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:e_commerce/utils/constants/texts.dart';
@@ -10,6 +9,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
+
+import '../../controllers/onboarding/onboarding_controller.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
