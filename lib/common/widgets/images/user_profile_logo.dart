@@ -14,9 +14,9 @@ class UserProfileLogo extends StatelessWidget {
     final controller = UserController.instance;
     return Obx(() {
       bool isProfileAvailable = controller.user.value.profilePicture.isNotEmpty;
-if(controller.isProfileUploading.value){
-  return UShimmerEffect(width: 120.0, height: 120.0,radius: 120,);
-}
+      if (controller.isProfileUploading.value) {
+        return UShimmerEffect(width: 120.0, height: 120.0, radius: 120);
+      }
       return UCircularImage(
         height: 120.0,
         width: 120.0,

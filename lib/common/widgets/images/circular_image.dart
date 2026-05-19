@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:e_commerce/common/widgets/shimmer/shimmer_effect.dart';
 import 'package:flutter/material.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/helpers/helper_functions.dart';
+import '../shimmer/shimmer_effect.dart';
 
 class UCircularImage extends StatelessWidget {
   const UCircularImage({
@@ -34,7 +34,10 @@ class UCircularImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = UHelperFunctions.isDarkMode(context);
-
+    final bool useNetworkImage =
+        isNetworkImage ||
+        image.startsWith('http://') ||
+        image.startsWith('https://');
     return Container(
       width: width,
       height: height,
@@ -46,16 +49,21 @@ class UCircularImage extends StatelessWidget {
             ? Border.all(color: borderColor, width: borderWidth)
             : null,
       ),
+      //cache image not working i do not know why
       child: ClipRRect(
         borderRadius: BorderRadius.circular(100),
-        child: isNetworkImage
+        child: useNetworkImage
             ? CachedNetworkImage(
                 imageUrl: image,
                 fit: fit,
-                errorWidget: (context, url, error) => Icon(Icons.error),
-                progressIndicatorBuilder: (context, url, progress) =>
-                    UShimmerEffect(width: 55, height: 55),
-                color: overlayColor,
+                color: overlayColor == Colors.transparent ? null : overlayColor,
+                placeholder: (context, url) =>
+                    UShimmerEffect(width: width, height: height, radius: 120),
+                errorWidget: (context, url, error) => const Icon(
+                  Icons.account_circle,
+                  size: 50,
+                  color: Colors.grey,
+                ),
               )
             : Image(fit: fit, image: AssetImage(image)),
       ),
