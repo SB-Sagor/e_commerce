@@ -5,8 +5,7 @@ import 'package:iconsax/iconsax.dart';
 import '../constants/colors.dart';
 
 class USnackBarHelpers {
-  
-  static warningSnackBar({required title, message = ''}) {
+  static warningSnackBar({required title, message = '', duration = 1}) {
     Get.snackbar(
       title,
       message,
@@ -15,13 +14,13 @@ class USnackBarHelpers {
       colorText: UColors.white,
       backgroundColor: Colors.orange,
       snackPosition: SnackPosition.BOTTOM,
-      duration: const Duration(seconds: 3),
+      duration: Duration(seconds: duration),
       margin: const EdgeInsets.all(20),
       icon: const Icon(Iconsax.warning_2, color: UColors.white),
     );
   }
 
-  static successSnackBar({required title, message = '', duration = 3}) {
+  static successSnackBar({required title, message = '', duration = 1}) {
     Get.snackbar(
       title,
       message,
@@ -45,7 +44,7 @@ class USnackBarHelpers {
       colorText: UColors.white,
       backgroundColor: Colors.red.shade600,
       snackPosition: SnackPosition.BOTTOM,
-      duration: const Duration(seconds: 3),
+      duration: const Duration(seconds: 1),
       margin: const EdgeInsets.all(20),
       icon: const Icon(Iconsax.warning_2, color: UColors.white),
     );

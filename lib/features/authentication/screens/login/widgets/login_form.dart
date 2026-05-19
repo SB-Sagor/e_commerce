@@ -32,13 +32,16 @@ class ULoginForm extends StatelessWidget {
               prefixIcon: Icon(Iconsax.direct_right),
               labelText: UTexts.email,
             ),
+            autofillHints: [AutofillHints.email],
           ),
           SizedBox(height: USizes.spaceBtwItems),
           Obx(
             () => TextFormField(
               controller: controller.password,
-              validator: (value) => UValidator.validateEmptyText('Password',value),
+              validator: (value) =>
+                  UValidator.validateEmptyText('Password', value),
               obscureText: !controller.isPasswordVisible.value,
+              autofillHints: [AutofillHints.password],
               decoration: InputDecoration(
                 prefixIcon: Icon(Iconsax.password_check),
                 labelText: UTexts.password,
@@ -80,8 +83,8 @@ class ULoginForm extends StatelessWidget {
           ),
           SizedBox(height: USizes.spaceBtwSections),
           UElevatedButton(
-            onPressed: () =>controller.loginWithEmailAndPassword(),
-                // Get.to(() => controller.loginWithEmailAndPassword()),
+            onPressed: () => controller.loginWithEmailAndPassword(),
+            // Get.to(() => controller.loginWithEmailAndPassword()),
             child: Text(UTexts.signIn),
           ),
           SizedBox(height: USizes.spaceBtwItems),

@@ -53,7 +53,7 @@ class USignupForm extends StatelessWidget {
           //email
           TextFormField(
             controller: controller.email,
-
+            autofillHints: [AutofillHints.email],
             validator: (value) => UValidator.validateEmail(value),
             decoration: InputDecoration(
               prefixIcon: Icon(Iconsax.direct_right),

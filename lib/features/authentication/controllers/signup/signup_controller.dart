@@ -77,11 +77,14 @@ class SignupController extends GetxController {
 
       await userRepository.saveUserRecord(userModel);
 
-      USnackBarHelpers.successSnackBar(title: 'Congratulations!');
+      USnackBarHelpers.successSnackBar(
+        title: 'Congratulations!',
+        message: 'Account Created Successfully',
+      );
 
       UFullScreenLoader.stopLoading();
 
-      Get.to(() => VerifyEmailScreen(email: email.text,));
+      Get.to(() => VerifyEmailScreen(email: email.text));
     } catch (e) {
       UFullScreenLoader.stopLoading();
 

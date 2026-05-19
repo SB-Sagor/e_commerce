@@ -55,7 +55,6 @@ class LoginController extends GetxController {
 
       final userCredential = await AuthenticationRepository.instance
           .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
-
       UFullScreenLoader.stopLoading();
 
       AuthenticationRepository.instance.screenRedirect();
@@ -88,6 +87,8 @@ class LoginController extends GetxController {
 
       //stop loading
       UFullScreenLoader.stopLoading();
+
+      USnackBarHelpers.successSnackBar(title: 'You have logged in successfully');
       //redirect
       AuthenticationRepository.instance.screenRedirect();
     } catch (e) {

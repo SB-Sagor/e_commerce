@@ -62,6 +62,8 @@ class VerifyEmailController extends GetxController {
           ),
         );
       }
-    } catch (e) {}
+    } catch (e) {
+      USnackBarHelpers.errorSnackBar(title: 'Oh Snap');
+    }
   }
 }
