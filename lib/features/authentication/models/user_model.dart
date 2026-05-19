@@ -9,7 +9,7 @@ class UserModel {
   final String email;
   String phoneNumber;
   String profilePicture;
-
+String publicId;
   UserModel({
     required this.id,
     required this.firstName,
@@ -18,6 +18,7 @@ class UserModel {
     required this.email,
     required this.phoneNumber,
     required this.profilePicture,
+    this.publicId='',
   });
 
   /// Function to get the full name
@@ -45,6 +46,7 @@ class UserModel {
       'Email': email,
       'PhoneNumber': phoneNumber,
       'ProfilePicture': profilePicture,
+      'PublicId':publicId,
     };
   }
 
@@ -61,6 +63,7 @@ class UserModel {
         email: data['Email'] ?? '',
         phoneNumber: data['PhoneNumber'] ?? '',
         profilePicture: data['ProfilePicture'] ?? '',
+        publicId: data['PublicId'] ,
       );
     } else {
       return UserModel.empty();

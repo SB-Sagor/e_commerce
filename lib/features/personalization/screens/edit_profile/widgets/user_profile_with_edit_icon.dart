@@ -1,4 +1,6 @@
+import 'package:e_commerce/features/personalization/controller/user_controller.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../../common/widgets/icons/circular_icon.dart';
@@ -9,15 +11,24 @@ class UserProfileWithEditIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Stack(
       children: [
         Center(child: UserProfileLogo()),
-        Positioned(
-          bottom: 0,
-          top: 0,
-          right: 0,
-          child: UCircularIcon(icon: Iconsax.edit),
-        ),
+        Obx(() {
+          if (controller.isProfileUploading.value) {
+            return SizedBox();
+          }
+          return Positioned(
+            bottom: 0,
+            top: 0,
+            right: 0,
+            child: UCircularIcon(
+              icon: Iconsax.edit,
+              onPressed: controller.updateUserProfilePicture,
+            ),
+          );
+        }),
       ],
     );
   }

@@ -1,6 +1,7 @@
 import 'package:e_commerce/data/repositories/user/user_repository.dart';
 import 'package:e_commerce/features/authentication/screens/login/login.dart';
 import 'package:e_commerce/features/authentication/screens/signup/verify_email.dart';
+import 'package:e_commerce/features/personalization/controller/user_controller.dart';
 import 'package:e_commerce/navigation_menu.dart';
 import 'package:e_commerce/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:e_commerce/utils/exceptions/firebase_exceptions.dart';
@@ -203,7 +204,11 @@ class AuthenticationRepository extends GetxController {
   Future<void> deleteAccount() async {
     try {
       await UserRepository.instance.removeUserRecord(currentUser!.uid);
-      _auth.currentUser?.delete();
+      String publicId = UserController.instance.user.value.publicId;
+      if (publicId.isNotEmpty) {
+        UserRepository.instance.deleteProfilePicture(publicId);
+      }
+      await _auth.currentUser?.delete();
     } on FirebaseAuthException catch (e) {
       throw UFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {

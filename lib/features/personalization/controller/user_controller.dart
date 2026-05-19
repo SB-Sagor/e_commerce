@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:e_commerce/data/repositories/authentication_repository.dart';
 import 'package:e_commerce/data/repositories/user/user_repository.dart';
 import 'package:e_commerce/features/authentication/models/user_model.dart';
@@ -12,6 +14,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:dio/dio.dart' as dio;
 
 class UserController extends GetxController {
   static UserController get instance => Get.find();
@@ -19,6 +23,7 @@ class UserController extends GetxController {
   final _userRepository = Get.put(UserRepository());
   Rx<UserModel> user = UserModel.empty().obs;
   RxBool profileLoading = false.obs;
+  RxBool isProfileUploading = false.obs;
 
   /// Re-Authenticate Form Variables
   final email = TextEditingController();
@@ -149,6 +154,60 @@ class UserController extends GetxController {
     } catch (e) {
       UFullScreenLoader.stopLoading();
       USnackBarHelpers.errorSnackBar(title: 'Oh Snap', message: e.toString());
+    }
+  }
+
+  Future<void> updateUserProfilePicture() async {
+    try {
+      isProfileUploading.value = true;
+
+      //pick image
+      XFile? image = await ImagePicker().pickImage(
+        source: ImageSource.gallery,
+        maxHeight: 512,
+        maxWidth: 512,
+        imageQuality: 60,
+      );
+      if (image == null) return;
+
+      // UFullScreenLoader.openLoadingDialog(
+      //   'Uploading Profile Picture...',
+      //   UImages.loading,
+      // );
+      //convert XFile to File
+      File file = File(image.path);
+      if (user.value.publicId.isNotEmpty) {
+        await _userRepository.deleteProfilePicture(user.value.publicId);
+      }
+
+      dio.Response response = await _userRepository.uploadImage(file);
+
+      // UFullScreenLoader.stopLoading();
+
+      if (response.statusCode == 200) {
+        // Get Data
+        final data = response.data;
+        final imageUrl = data['url'];
+        final publicId = data['public_id'];
+        // update profile picture from Fire store
+        await _userRepository.updateSingleField({
+          'ProfilePicture': imageUrl,
+          'PublicId': publicId,
+        });
+        user.value.profilePicture = imageUrl;
+        user.value.publicId = publicId;
+        user.refresh();
+        USnackBarHelpers.successSnackBar(
+          title: 'Congratulation',
+          message: 'Profile picture has been updated',
+        );
+      } else {
+        throw 'Failed to upload profile picture. Please try again';
+      }
+    } catch (e) {
+      USnackBarHelpers.errorSnackBar(title: 'Oh Snap', message: e.toString());
+    } finally {
+      isProfileUploading.value = false;
     }
   }
 }
