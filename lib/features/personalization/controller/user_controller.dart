@@ -34,20 +34,24 @@ class UserController extends GetxController {
 
   Future<void> saveUserRecord(UserCredential userCredential) async {
     try {
-      // Convert Full Name to FirstName & LastName
-      final nameParts = UserModel.nameParts(userCredential.user!.displayName);
-      final username = '${userCredential.user!.displayName}009';
-      UserModel userModel = UserModel(
-        id: userCredential.user!.uid,
-        firstName: nameParts[0],
-        // Unknown
-        lastName: nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
-        username: username,
-        email: userCredential.user!.email ?? '',
-        phoneNumber: userCredential.user!.phoneNumber ?? '',
-        profilePicture: userCredential.user!.photoURL ?? '',
-      );
-      await _userRepository.saveUserRecord(userModel);
+      await fetchUserDetails();
+
+      if (user.value.id.isEmpty) {
+        // Convert Full Name to FirstName & LastName
+        final nameParts = UserModel.nameParts(userCredential.user!.displayName);
+        final username = '${userCredential.user!.displayName}009';
+        UserModel userModel = UserModel(
+          id: userCredential.user!.uid,
+          firstName: nameParts[0],
+          // Unknown
+          lastName: nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
+          username: username,
+          email: userCredential.user!.email ?? '',
+          phoneNumber: userCredential.user!.phoneNumber ?? '',
+          profilePicture: userCredential.user!.photoURL ?? '',
+        );
+        await _userRepository.saveUserRecord(userModel);
+      }
     } catch (e) {
       USnackBarHelpers.errorSnackBar(title: 'Data Not Saved!');
     }
